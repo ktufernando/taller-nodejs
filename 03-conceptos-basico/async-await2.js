@@ -27,34 +27,12 @@ let getEmpleado = async(id) => {
     } else {
         return empleadoDB;
     }
-
-}
-
-let getSalario = async(empleado) => {
-
-    let salarioDB = salarios.find(salario => salario.id === empleado.id);
-
-    if (!salarioDB) {
-        throw new Error(`No se encontró un salario para el usuario ${ empleado.nombre }`);
-    } else {
-        return {
-            nombre: empleado.nombre,
-            salario: salarioDB.salario,
-            id: empleado.id
-        };
-    }
-
 }
 
 
+//Ejercicio: Hacer la funcion getSalario empleando async
 
-let getInformacion = async(id) => {
-
-    let empleado = await getEmpleado(id);
-    let resp = await getSalario(empleado);
-
-    return `${ resp.nombre } tiene un salario de ${ resp.salario }$`;
-}
+//Ejercicio: Desarrollar un metodo getInformacion que ejecute con await las funciones getEmepleado y getSalario, retornando un mensaje con la información obtenida
 
 
 getInformacion(3)
