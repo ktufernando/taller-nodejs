@@ -40,7 +40,11 @@
 - Promesas
 - Async - Await
 
-## Capítulo 3: Primera app
-- Calculadora (tabla-0.1)
+## Capítulo 3: Primera app - Multiplicar
+- Multiplicar (tabla-0.1)
 - Requerir paquetes (tabla-0.2) y crear archivos
   - https://nodejs.org/es/docs/
+- Funcion crear archivo
+- Ingresar la base desde la terminal
+- Utilizar el paquete yargs para manipular parametros de la terminal
+- Utilizar el paquete colors para la salida de colores en la terminal

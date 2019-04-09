@@ -4,7 +4,7 @@ let empleados = [{
     nombre: 'Fernando'
 }, {
     id: 2,
-    nombre: 'Melissa'
+    nombre: 'Melina'
 }, {
     id: 3,
     nombre: 'Juan'
