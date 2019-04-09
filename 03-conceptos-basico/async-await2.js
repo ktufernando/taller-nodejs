@@ -3,7 +3,7 @@ let empleados = [{
     nombre: 'Fernando'
 }, {
     id: 2,
-    nombre: 'Melissa'
+    nombre: 'Melina'
 }, {
     id: 3,
     nombre: 'Juan'
@@ -18,16 +18,20 @@ let salarios = [{
 }];
 
 
-let getEmpleado = async(id) => {
+let getEmpleado = (id) => {
 
-    let empleadoDB = empleados.find(empleado => empleado.id === id)
+    return new Promise((resolve, reject) => {
 
-    if (!empleadoDB) {
-        throw new Error(`No existe un empleado con el ID ${ id }`)
-    } else {
-        return empleadoDB;
-    }
+        let empleadoDB = empleados.find(empleado => empleado.id === id)
+
+        if (!empleadoDB) {
+            reject(`No existe un empleado con el ID ${ id }`)
+        } else {
+            resolve(empleadoDB);
+        }
+    });
 }
+
 
 
 //Ejercicio: Hacer la funcion getSalario empleando async

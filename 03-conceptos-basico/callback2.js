@@ -18,26 +18,45 @@ let salarios = [{
     salario: 2000
 }];
 
-//Uno
 let getEmpleado = (id, callback) => {
+
     let empleadoDB = empleados.find(empleado => empleado.id === id)
-    callback(empleadoDB);
+
+    if (!empleadoDB) {
+        callback(`No existe un empleado con el ID ${ id }`)
+    } else {
+        callback(null, empleadoDB);
+    }
 }
-getEmpleado(2, (empleado) => {
-    console.log(empleado);
+
+let getSalario = (empleado, callback) => {
+
+    let salarioDB = salarios.find(salario => salario.id === empleado.id);
+
+    if (!salarioDB) {
+        callback(`No se encontró un salario para el empleado ${ empleado.nombre }`);
+    } else {
+        callback(null, {
+            nombre: empleado.nombre,
+            salario: salarioDB.salario,
+            id: empleado.id
+        });
+    }
+}
+
+getEmpleado(2, (err, empleado) => {
+
+    if (err) {
+        return console.log(err);
+    }
+
+    getSalario(empleado, (err, resp) => {
+
+        if (err) {
+            return console.log(err);
+        };
+
+        console.log(`El salario de ${ resp.nombre } es de ${ resp.salario }$`);
+
+    });
 });
-
-
-//Ejercicio 1: Si no existe el empleado que devuelva el mensaje: `No existe un empleado con el ID ${ id }`
-// Al llamar a la funcion se debe validar si el callback tiene error y mostrarlo en consola
-
-
-// Ejercicio
-// {
-//     nombre: 'Adriana',
-//     salario: 2000
-// }
-
-// No se encontró un salario para el usuario Damian
-
-// Dentro del callbak getEmpleado, ejecuar la funcion getSalario

@@ -9,6 +9,8 @@ let nombreTemplate = `${ nombre } ${ real }`;
 
 console.log(nombreCompleto === nombreTemplate);
 
-//Ejercicio: Funcion que devuelva el nombre y el real
+function getNombre() {
+    return `${ nombre } ${ real }`;
+}
 
 console.log(`El nombre de: ${ getNombre() }`);

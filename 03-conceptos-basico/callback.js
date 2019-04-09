@@ -1,6 +1,6 @@
-setTimeout(() => {
+/*setTimeout(() => {
     console.log('Hola Mundo');
-}, 3000);
+}, 3000);*/
 
 
 let getUsuarioById = (id, callback) => {
@@ -9,9 +9,22 @@ let getUsuarioById = (id, callback) => {
         nombre: 'Fernando',
         id
     }
-    callback(usuario);
+
+    if (id === 20) {
+        callback(`El usuario con id ${ id }, no existe en la BD`);
+    } else {
+        callback(null, usuario);
+    }
+
+
 }
 
-//Ejercicio 1: Modificar la funcion getUsuarioById para que si llega el id "20", debe devolver un mensaje de error
+getUsuarioById(1, (err, usuario) => {
 
-//Ejercicio 2: Modificar el callback para gestionar el error
+    if (err) {
+        return console.log(err);
+    }
+
+    console.log('Usuario de base de datos', usuario);
+
+});

@@ -4,7 +4,7 @@ let empleados = [{
     nombre: 'Fernando'
 }, {
     id: 2,
-    nombre: 'Melissa'
+    nombre: 'Melina'
 }, {
     id: 3,
     nombre: 'Juan'
@@ -18,25 +18,23 @@ let salarios = [{
     salario: 2000
 }];
 
-let getEmpleado = (id) => {
+let getEmpleado = (id, callback) => {
 
-    return new Promise((resolve, reject) => {
-        let empleadoDB = empleados.find(empleado => empleado.id === id)
-    
-        if (!empleadoDB) {
-            reject(`No existe un empleado con el ID ${ id }`)
-        } else {
-            resove(empleadoDB);
-        }
-    });
+    let empleadoDB = empleados.find(empleado => empleado.id === id)
 
+    if (!empleadoDB) {
+        callback(`No existe un empleado con el ID ${ id }`)
+    } else {
+        callback(null, empleadoDB);
+    }
 }
 
 
-getEmpleado(10).then(empleado => {
-    console.log('Empleado de BD', empleado);
-}).catch(error => {
-    console.log(error);
+getEmpleado(2, (err, empleado) => {
+    if (err) {
+        return console.log(err);
+    }
+    console.log(empleado);
 });
 
 
