@@ -1,0 +1,14 @@
+{
+  "name": "04-primer-app",
+  "version": "1.0.0",
+  "description": "Esta es una app de linea de comandos",
+  "main": "tabla-0.5.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fernando",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^13.2.1"
+  }
+}
